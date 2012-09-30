@@ -28,17 +28,24 @@ THE SOFTWARE.
     /**
      * default Options
      */
-    var defaults = {
-      
-    };
-
+     var defaults = {
+       row:16,
+       col:16,
+     };
 
 		return this.each(function(){
-    };
+      var opts = $.extend(defaults , options);
+
+      for(var i = 0; i < opts.row; i++){
+        var rowelem = $("<div class='row' />");
+
+        for(var k = 0; k < opts.col; k++){
+          rowelem.append($("<div class='col' />"));
+        }
+        $(this).append(rowelem);
+      }
+
+      $(this).css("background" , "#ff0");
+    });
   }
-
-
-
-
-
 })(jQuery);
